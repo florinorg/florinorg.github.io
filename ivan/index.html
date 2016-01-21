@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Ivan by Florin is the best way to share your IBAN with friends. Florin is a company that is here to reinvent digital payments.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ivan by Florin</title>
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/ivan/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/ivan/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/ivan/favicon-16x16.png">
+  <link rel="stylesheet" href="/css/ivan.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="ivan-logo">
+      <img src="../img/ivan/ivan-icon.png" alt="Ivan – Always have the IBAN of your friends with you" />
+    </div>
+
+    <div id="intro">
+      <h2>IVAN: Always have the IBAN of your friends with you.</h2>
+    </div>
+
+    <div id="appstore-download" class="show">
+      <a href="https://itunes.apple.com/us/app/ivan-always-have-your-friends/id1064057753?l=nl&ls=1&mt=8"><img src="../img/ivan/app-store-download.svg" alt="Ivan – Always have the IBAN of your friends with you" width="135" height="40"></a><br>
+      <a href="https://itunes.apple.com/us/app/ivan-always-have-your-friends/id1064057753?l=nl&ls=1&mt=8">Download IVAN on the App Store.</a>
+    </div>
+
+    <div id="android-mailing">
+      <!-- Begin MailChimp Signup Form -->
+      <div id="mc_embed_signup">
+      <form action="//florinapp.us12.list-manage.com/subscribe/post?u=61c4291fad7679e9e5eb02a31&amp;id=a7833ad77d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+          <div id="mc_embed_signup_scroll">
+        <h5>Be the first to know when we launch the Android version of IVAN.</h5>
+      <div class="mc-field-group">
+        <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span></label>
+        <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+      </div>
+        <div id="mce-responses" class="clear">
+          <div class="response" id="mce-error-response" style="display:none"></div>
+          <div class="response" id="mce-success-response" style="display:none"></div>
+        </div>
+          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_61c4291fad7679e9e5eb02a31_a7833ad77d" tabindex="-1" value=""></div>
+          <div class="clear"><input type="submit" value="Notify me" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+          </div>
+      </form>
+      </div>
+    <!--End mc_embed_signup-->
+    </div>
+
+    <div id="footer">
+      <span>&copy;</span> <a href="https://florinapp.com">Florin B.V.</a> <span>2016</span> <span class="split">|</span>
+      <a href="/ivan/press/">Press Release</a> <span class="split">|</span> <a href="/downloads/ivan-privacy-statement.pdf">Privacy Statement</a>
+    </div>
+
+  </div>
+
+  <!-- Android or not -->
+  <script>
+  var isMobile = {
+      Android: function() {
+          return /Android/i.test(navigator.userAgent);
+      },
+      BlackBerry: function() {
+          return /BlackBerry/i.test(navigator.userAgent);
+      },
+      iOS: function() {
+          return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+      },
+      Windows: function() {
+          return /IEMobile/i.test(navigator.userAgent);
+      },
+      any: function() {
+          return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());
+      }
+  };
+
+  var signup = document.querySelector('#android-mailing');
+  var download = document.querySelector('#appstore-download');
+
+  if (isMobile.Android()) {
+    signup.classList.add('show');
+    download.classList.remove('show');
+  } else {
+    signup.classList.remove('show');
+    download.classList.add('show');
+  }
+
+  </script>
+
+
+  <!-- Google Analytics code -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-71405565-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+</body>
+</html>
