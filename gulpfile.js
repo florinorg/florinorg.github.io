@@ -1,9 +1,19 @@
+'use strict';
+
 var gulp        = require('gulp');
 var browserSync = require('browser-sync');
 var sass        = require('gulp-sass');
 var prefix      = require('gulp-autoprefixer');
 var cp          = require('child_process');
 var minifyCss   = require('gulp-minify-css');
+
+// JS dependencies
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
+var uglify = require('gulp-uglify');
+var sourcemaps = require('gulp-sourcemaps');
+var gutil = require('gulp-util');
 
 var messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
@@ -53,10 +63,32 @@ gulp.task('sass', function () {
 });
 
 /**
+ * Compile the Javascript files
+ */
+gulp.task('scripts', function () {
+  // set up the browserify instance on a task basis
+  var b = browserify({
+    entries: './js/main.js',
+    debug: true
+  });
+
+  return b.bundle()
+    .pipe(source('main.min.js'))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({loadMaps: true}))
+        // Add transformation tasks to the pipeline here.
+        .pipe(uglify())
+        .on('error', gutil.log)
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('./_site/js/'))
+    .pipe(gulp.dest('js'));
+});
+
+/**
  * Watch scss files for changes & recompile
  * Watch html/md files, run jekyll & reload BrowserSync
  */
-gulp.task('watch', function () {
+gulp.task('default', ['scripts','browser-sync'], function() {
     gulp.watch(['_scss/*.sass', ], ['sass']);
     gulp.watch([
                '*.html',
@@ -66,9 +98,3 @@ gulp.task('watch', function () {
                ],
                ['jekyll-rebuild']);
 });
-
-/**
- * Default task, running just `gulp` will compile the sass,
- * compile the jekyll site, launch BrowserSync & watch files.
- */
-gulp.task('default', ['browser-sync', 'watch']);
