@@ -5,8 +5,8 @@ description: > # this means to ignore newlines until "baseurl:"
   Florin is a company that is here to reinvent digital payments. Money is at the beating heart of our lives and economy. Creating new types of payments allows people to transfer value in new ways, previously unimaginable.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://florinorg.github.io/" # the base hostname & protocol for your site
-markdown: redcarpet
-highlighter: pygments
+markdown: kramdown
+highlighter: rouge
 exclude: ["node_modules", "gulpfile.js", "package.json"]
 permalink: pretty
 timezone: "Europe/Amsterdam"
